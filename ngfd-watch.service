@@ -1,0 +1,10 @@
+[Unit]
+Description=NGFD Watchdog
+After=ngfd.service
+
+[Service]
+ExecStart=/usr/bin/ngfd-watch.sh
+Restart=always
+
+[Install]
+WantedBy=ngfd.service
