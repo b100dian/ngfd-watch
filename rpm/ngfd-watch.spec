@@ -1,5 +1,5 @@
 Name:   ngfd-watch
-Version:  0.0.1
+Version:  0.0.2
 Release:  1%{?dist}
 Summary:  Watchdog for ngfd
 BuildArch:  noarch
@@ -27,5 +27,5 @@ Tries to determine if ngfd service is in a deadlock and kills it if is.
 %systemd_user_preun %{name}.service
 
 %changelog
-* Tue Jan 10 2023 Vlad G. <vlad@grecescu.net> - 0.0.1-1
+* Tue Jan 10 2023 Vlad G. <vlad@grecescu.net> - 0.0.2-1
 - Initial detection by ogg file descriptor
