@@ -10,11 +10,20 @@ Source0:    %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 BuildRequires: systemd
 
 %description
-Tries to determine if ngfd service is in a deadlock and kills it if is.
+Determines if ngfd service is in a deadlock and kills it if is.
+
+
+Custom:
+  Repo: https://github.com/b100dian/ngfd-watch
+Categories:
+  - System
 
 %files
 %{_userunitdir}/%{name}.service
 %{_bindir}/%{name}.sh
+
+%prep
+%setup
 
 %install
 %{__install} -D -m 755 %{name}.sh %{buildroot}%{_bindir}/%{name}.sh
@@ -29,5 +38,7 @@ ln -s ../ngfd-watch.service %{buildroot}%{_userunitdir}/ngfd.service.wants/ngfd-
 %systemd_user_preun %{name}.service
 
 %changelog
-* Tue Jan 10 2023 Vlad G. <vlad@grecescu.net> - 0.0.2-1
+* Sun Jan 8 2023 Vlad G. <vlad@grecescu.net> - 0.0.2-1
 - Initial detection by ogg file descriptor
+* Mon Jan 9 2023 Vlad G. <vlad@grecescu.net> - 0.0.3-1
+- More sampling + kills by consecutive samples count
