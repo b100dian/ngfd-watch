@@ -17,8 +17,8 @@ Tries to determine if ngfd service is in a deadlock and kills it if is.
 %{_bindir}/%{name}.sh
 
 %install
-%{__install} -D -m 755 %{name}.sh %{buildroot}%{_bindir}/%{name}.sh
-%{__install} -D -m 644 %{name}.service %{buildroot}%{_userunitdir}/%{name}.service
+%{__install} -D -m 755 %{_sourcedir}/../%{name}.sh %{buildroot}%{_bindir}/%{name}.sh
+%{__install} -D -m 644 %{_sourcedir}/../%{name}.service %{buildroot}%{_userunitdir}/%{name}.service
 
 %post
 %systemd_user_post %{name}.service
