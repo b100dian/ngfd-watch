@@ -5,6 +5,7 @@ Summary:  Watchdog for ngfd
 BuildArch:  noarch
 License:  GPLv3+
 URL:    https://github.com/b100dian/ngfd-watch
+Source0:    %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires: systemd
 
