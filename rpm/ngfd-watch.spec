@@ -1,6 +1,6 @@
 Name:   ngfd-watch
 Version:  0.0.2
-Release:  1%{?dist}
+Release:  1
 Summary:  Watchdog for ngfd
 BuildArch:  noarch
 License:  GPLv3+
@@ -24,7 +24,9 @@ Categories:
 %{_userunitdir}/ngfd.service.wants/ngfd-watch.service
 
 %prep
-%setup
+%setup -q
+
+%build
 
 %install
 %{__install} -D -m 755 %{name}.sh %{buildroot}%{_bindir}/%{name}.sh
@@ -39,6 +41,8 @@ ln -s ../ngfd-watch.service %{buildroot}%{_userunitdir}/ngfd.service.wants/ngfd-
 %systemd_user_preun %{name}.service
 
 %changelog
+* Tue Jan 10 2023 Vlad G. <vlad@grecescu.net> - 0.0.4-1
+  Display name in notification. Configure via /etc/ngfd-watch.
 * Mon Jan 9 2023 Vlad G. <vlad@grecescu.net> - 0.0.3-1
 - More sampling + kills by consecutive samples count
 * Sun Jan 8 2023 Vlad G. <vlad@grecescu.net> - 0.0.2-1
