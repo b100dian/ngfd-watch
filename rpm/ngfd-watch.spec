@@ -19,8 +19,9 @@ Categories:
   - System
 
 %files
-%{_userunitdir}/%{name}.service
 %{_bindir}/%{name}.sh
+%{_userunitdir}/%{name}.service
+%{_userunitdir}/ngfd.service.wants/ngfd-watch.service
 
 %prep
 %setup
@@ -38,7 +39,7 @@ ln -s ../ngfd-watch.service %{buildroot}%{_userunitdir}/ngfd.service.wants/ngfd-
 %systemd_user_preun %{name}.service
 
 %changelog
-* Sun Jan 8 2023 Vlad G. <vlad@grecescu.net> - 0.0.2-1
-- Initial detection by ogg file descriptor
 * Mon Jan 9 2023 Vlad G. <vlad@grecescu.net> - 0.0.3-1
 - More sampling + kills by consecutive samples count
+* Sun Jan 8 2023 Vlad G. <vlad@grecescu.net> - 0.0.2-1
+- Initial detection by ogg file descriptor
