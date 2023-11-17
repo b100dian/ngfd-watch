@@ -3,7 +3,7 @@ Version:    0.0.4
 Release:    1
 Summary:    Watchdog for ngfd
 BuildArch:  noarch
-License:    GPLv3+
+License:    GPL-3.0-or-later
 URL:        https://github.com/b100dian/ngfd-watch
 Source0:    %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 
