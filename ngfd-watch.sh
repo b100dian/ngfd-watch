@@ -24,7 +24,7 @@ MATCH_COUNT=0
 while :
 do
   sleep $INTERVAL
-  OGG_LINE=$( lsof -p $( pgrep -x ngfd ) | grep \\.ogg | tail -n 1 )
+  OGG_LINE=$( lsof -p $( pgrep -x /usr/bin/ngfd ) | grep \\.ogg | tail -n 1 )
   if [ -z "$OGG_LINE" ];
   then
     LAST_OGG=
