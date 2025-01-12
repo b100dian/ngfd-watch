@@ -1,5 +1,5 @@
 Name:       ngfd-watch
-Version:    0.0.4
+Version:    0.0.5
 Release:    1
 Summary:    Watchdog for ngfd
 BuildArch:  noarch
@@ -7,6 +7,7 @@ License:    GPL-3.0-or-later
 URL:        https://github.com/b100dian/ngfd-watch
 Source0:    %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 
+Requires: lipstick-qt5-tools
 BuildRequires: pkgconfig(systemd)
 
 %description
@@ -41,6 +42,8 @@ ln -s ../ngfd-watch.service %{buildroot}%{_userunitdir}/ngfd.service.wants/ngfd-
 %systemd_user_preun %{name}.service
 
 %changelog
+* Sun Jan 25 2025 Vlad G. <vlad@grecescu.net> - 0.0.5-1
+- Depends on lipstick-qt5-tools
 * Tue Jan 10 2023 Vlad G. <vlad@grecescu.net> - 0.0.4-1
 - Display name in notification. Configure via /etc/ngfd-watch.
 * Mon Jan 09 2023 Vlad G. <vlad@grecescu.net> - 0.0.3-1
